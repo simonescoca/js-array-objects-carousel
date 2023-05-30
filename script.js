@@ -48,104 +48,38 @@ const nextButton = document.getElementById ("next-img")
 const imgElement = document.getElementById ("img")
 const titleElement = document.getElementById ("title")
 const textElement = document.getElementById ("text")
-let i = 0
 
-imgTitleTextAtLoading (i)
+let currentIndex = 0
+atLoading (currentIndex)
 
 // ! EVENT LISTENERS ...................................
 backButton.addEventListener ("click", () => {
-    if (i === 0) {
-        i = images.length - 1
+    if (currentIndex === 0) {
+        currentIndex = images.length - 1
 
     } else {
-        i--
+        currentIndex--
     }
-    imgElement.src = previousImg (i)
-    titleElement.innerText = previousTitle (i)
-    textElement.innerText = previousText (i)
+    imgElement.src = images[currentIndex].image
+    titleElement.innerText = images[currentIndex].title
+    textElement.innerText = images[currentIndex].text
 })
 
 nextButton.addEventListener ("click", () => {
-    if (i === images.length - 1) {
-        i = 0
+    if (currentIndex === images.length - 1) {
+        currentIndex = 0
 
     } else {
-        i++
+        currentIndex++
     }
-    imgElement.src = nextImg (i)
-    titleElement.innerText = nextTitle (i)
-    textElement.innerText = nextText (i)
+    imgElement.src = images[currentIndex].image
+    titleElement.innerText = images[currentIndex].title
+    textElement.innerText = images[currentIndex].text
 })
 
 // ! FUNCTIONS ..........................................
-function previousImg (i) {
-    if (i === 0) {
-        i = images.length - 1
-        return images[i].image
-
-    } else {
-        i--
-        return images[i].image
-    }
-}
-
-function nextImg (i) {
-    if (i === images.length - 1) {
-        i = 0
-        return images[i].image
-
-    } else {
-        i++
-        return images[i].image
-    }
-}
-
-function previousTitle (i) {
-    if (i === 0) {
-        i = images.length - 1
-        return images[i].title
-
-    } else {
-        i--
-        return images[i].title
-    }
-}
-
-function nextTitle (i) {
-    if (i === images.length - 1) {
-        i = 0
-        return images[i].title
-
-    } else {
-        i++
-        return images[i].title
-    }
-}
-
-function previousText (i) {
-    if (i === 0) {
-        i = images.length - 1
-        return images[i].text
-
-    } else {
-        i--
-        return images[i].text
-    }
-}
-
-function nextText (i) {
-    if (i === images.length - 1) {
-        i = 0
-        return images[i].text
-
-    } else {
-        i++
-        return images[i].text
-    }
-}
-
-function imgTitleTextAtLoading (i) {
-    imgElement.src = images[i].image
-    titleElement.innerText = images[i].title
-    textElement.innerText = images[i].text
+function atLoading (index) {
+    imgElement.src = images[index].image
+    titleElement.innerText = images[index].title
+    textElement.innerText = images[index].text
 }
