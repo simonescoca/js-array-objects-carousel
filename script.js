@@ -56,25 +56,19 @@ atLoading (currentIndex)
 backButton.addEventListener ("click", () => {
     if (currentIndex === 0) {
         currentIndex = images.length - 1
-
     } else {
         currentIndex--
     }
-    imgElement.src = images[currentIndex].image
-    titleElement.innerText = images[currentIndex].title
-    textElement.innerText = images[currentIndex].text
+    atLoading (currentIndex)
 })
 
 nextButton.addEventListener ("click", () => {
     if (currentIndex === images.length - 1) {
         currentIndex = 0
-
     } else {
         currentIndex++
     }
-    imgElement.src = images[currentIndex].image
-    titleElement.innerText = images[currentIndex].title
-    textElement.innerText = images[currentIndex].text
+    atLoading (currentIndex)
 })
 
 // ! FUNCTIONS ..........................................
